@@ -1,38 +1,333 @@
-.App {
-  text-align: center;
+/* ============================================
+   モダンなUIデザイン - 白・グレー・青のテーマ
+   ============================================ */
+
+/* 基本設定 */
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body, html { 
+  margin: 0; 
+  padding: 0; 
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  background: #f5f7fa; 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-wrapper { 
+  display: flex; 
+  height: 100vh; 
+  position: relative; 
+  overflow: hidden; 
+  background: #f5f7fa;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-wrapper.desktop-mode {
+  display: flex;
+  flex-direction: row;
+}
+
+.app-wrapper.editor-mode {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+}
+
+.editor-content-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* AIチャットフローティングボタン */
+.ai-chat-floating-button {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 120px;
+  height: 56px;
+  background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+  border: none;
+  border-radius: 28px;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s;
+  z-index: 9000;
 }
 
-.App-link {
-  color: #61dafb;
+.ai-chat-floating-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.ai-icon {
+  font-size: 20px;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.ai-label {
+  font-size: 15px;
+}
+
+/* モバイル時のAIボタン */
+@media (max-width: 768px) {
+  .ai-chat-floating-button {
+    bottom: 80px;
+    right: 20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+  }
+  
+  .ai-label {
+    display: none;
+  }
+  
+  .ai-icon {
+    font-size: 24px;
+  }
+}
+
+.app-wrapper.mobile-mode { 
+  flex-direction: column; 
+  background: #000;
+}
+
+/* ============================================
+   モバイルプレビュー
+   ============================================ */
+.mobile-preview-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-edit-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mobile-edit-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.5);
+}
+
+.mobile-edit-fab:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   管理者ダッシュボード
+   ============================================ */
+.admin-dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f5f7fa;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.admin-header {
+  background: #ffffff;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.admin-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.admin-tab-btn {
+  padding: 8px 16px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  transition: all 0.2s;
+}
+
+.admin-tab-btn:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background: #f9fafb;
+}
+
+.admin-tab-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.admin-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.admin-projects-list {
+  display: grid;
+  gap: 16px;
+}
+
+.admin-project-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.admin-project-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.admin-project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.admin-project-header strong {
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.admin-view-btn {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.admin-view-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.admin-project-preview {
+  margin-top: 12px;
+}
+
+.admin-slide-thumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.admin-slide-thumb {
+  width: 60px;
+  height: 84px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #e5e7eb;
+}
+
+.admin-leads-list {
+  display: grid;
+  gap: 20px;
+}
+
+.admin-lead-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.admin-lead-section h3 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.admin-lead-card {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-left: 3px solid #3b82f6;
+}
+
+/* ============================================
+   レスポンシブ対応
+   ============================================ */
+@media (max-width: 767px) {
+  .app-wrapper.desktop-mode {
+    display: none;
+  }
+  
+  .app-wrapper.mobile-mode {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-wrapper.desktop-mode {
+    display: flex;
+  }
+  
+  .app-wrapper.mobile-mode {
+    display: none;
   }
 }

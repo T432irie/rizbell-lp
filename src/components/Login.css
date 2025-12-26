@@ -1,0 +1,170 @@
+/* IKEA風の2カラムレイアウト */
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 左側: 青背景 #0058a3 */
+.login-left {
+  width: 50%;
+  background: #0058a3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-left-content {
+  text-align: center;
+  color: white;
+}
+
+.login-logo {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.login-catchphrase {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  color: white;
+  opacity: 0.95;
+}
+
+/* 右側: 白背景 + フォーム */
+.login-right {
+  width: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-form-wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  background: #FFFFFF;
+  color: #1F2937;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #0058a3;
+  box-shadow: 0 0 0 3px rgba(0, 88, 163, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #9CA3AF;
+}
+
+.error-message {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: #FEE2E2;
+  color: #DC2626;
+  border-radius: 6px;
+  font-size: 14px;
+  border: 1px solid #FECACA;
+}
+
+.login-submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #0058a3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+}
+
+.login-submit-btn:hover {
+  background: #004a8a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 88, 163, 0.3);
+}
+
+.login-submit-btn:active {
+  transform: translateY(0);
+}
+
+.login-toggle-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: #0058a3;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.login-toggle-btn:hover {
+  color: #004a8a;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    width: 100%;
+    height: 40%;
+    padding: 24px;
+  }
+
+  .login-logo {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  .login-catchphrase {
+    font-size: 18px;
+  }
+
+  .login-right {
+    width: 100%;
+    height: 60%;
+    padding: 24px;
+  }
+}
+
