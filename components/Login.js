@@ -12,7 +12,7 @@ const SERVICES = [
   {
     id: 'swipe-lp',
     name: 'Rizbell スワイプLP',
-    href: '#',
+    href: '/auth/login',
     active: true,
   },
 ];

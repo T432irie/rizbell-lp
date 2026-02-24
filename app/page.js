@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation'
 import { useAuth } from '@/lib/hooks/useAuth'
 import { useProject } from '@/lib/hooks/useProject'
 import { ADMIN_EMAIL } from '@/lib/constants'
-import Login from '@/components/Login'
 import Dashboard from '@/components/Dashboard'
 
 export default function HomePage() {
@@ -17,29 +16,19 @@ export default function HomePage() {
 
   const project = useProject(effectiveUser)
 
+  // 未認証 → /auth/login へリダイレクト
+  useEffect(() => {
+    if (!auth.authLoading && !auth.user) {
+      router.replace('/auth/login')
+    }
+  }, [auth.authLoading, auth.user, router])
+
   // ローディング中
-  if (auth.authLoading) {
+  if (auth.authLoading || !effectiveUser) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         <div>読み込み中...</div>
       </div>
-    )
-  }
-
-  if (!effectiveUser) {
-    return (
-      <Login
-        loginEmail={auth.loginEmail}
-        setLoginEmail={auth.setLoginEmail}
-        loginPassword={auth.loginPassword}
-        setLoginPassword={auth.setLoginPassword}
-        isSignUp={auth.isSignUp}
-        setIsSignUp={auth.setIsSignUp}
-        authError={auth.authError}
-        setAuthError={auth.setAuthError}
-        handleLogin={auth.handleLogin}
-        handleSignUp={auth.handleSignUp}
-      />
     )
   }
 
