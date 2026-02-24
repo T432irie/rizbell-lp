@@ -36,9 +36,10 @@ export default function Login({
       <div className="login-content">
         {/* 1. ブランドヘッダー */}
         <div className="login-brand">
-          <p className="brand-system-label">Rizbell システム</p>
+          <h2 className="brand-system-label">Rizbell システム</h2>
           <div className="brand-logo-wrapper">
-            <span className="brand-logo-text">Rizbell スワイプLP</span>
+            {/* ロゴ画像が用意できたら <img src="/images/swipe-lp-logo.png" alt="Rizbell スワイプLP" /> に差し替え */}
+            <span className="brand-logo-text">リズベル スワイプLP</span>
           </div>
         </div>
 
@@ -49,7 +50,7 @@ export default function Login({
             <p className="login-card-desc">
               {isSignUp
                 ? 'アカウントを作成してスワイプLPを始めましょう'
-                : 'メールアドレスとパスワードを入力してください'}
+                : 'メールアドレスとパスワードでログインできます'}
             </p>
           </div>
           <div className="login-card-body">
@@ -87,7 +88,7 @@ export default function Login({
                 </div>
               )}
               <button type="submit" className="login-submit-btn">
-                {isSignUp ? '新規登録' : 'ログイン'}
+                {isSignUp ? '新規登録する' : 'ログインする'}
               </button>
             </form>
             <div className="login-toggle-row">
@@ -99,7 +100,7 @@ export default function Login({
                 }}
                 className="login-toggle-btn"
               >
-                {isSignUp ? '既にアカウントをお持ちの方はログイン' : '新規登録はこちら'}
+                {isSignUp ? '既にアカウントをお持ちの方はこちら' : 'アカウントをお持ちでない方はこちら'}
               </button>
             </div>
           </div>
