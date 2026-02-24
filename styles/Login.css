@@ -1,170 +1,279 @@
-/* IKEA風の2カラムレイアウト */
-.login-container {
+/* ============================================
+   Rizbell 統一ログイン画面
+   カラー: オレンジ系 (orange-500: #f97316)
+   ============================================ */
+
+/* ページ全体 */
+.login-page {
+  min-height: 100vh;
   display: flex;
-  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+  padding: 24px 16px;
+}
+
+.login-content {
   width: 100%;
+  max-width: 448px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* 1. ブランドヘッダー */
+.login-brand {
+  text-align: center;
+}
+
+.brand-system-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  letter-spacing: 0.1em;
+  margin: 0 0 12px 0;
+}
+
+.brand-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-logo-wrapper img {
+  height: 40px;
+  width: auto;
+}
+
+.brand-logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f97316;
+}
+
+/* 2. ログインカード */
+.login-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
   overflow: hidden;
 }
 
-/* 左側: 青背景 #0058a3 */
-.login-left {
-  width: 50%;
-  background: #0058a3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
+.login-card-header {
+  background: #f97316;
+  padding: 24px 28px;
+  color: #ffffff;
 }
 
-.login-left-content {
-  text-align: center;
-  color: white;
-}
-
-.login-logo {
-  font-size: 48px;
+.login-card-title {
+  font-size: 20px;
   font-weight: 700;
-  margin: 0 0 24px 0;
-  color: white;
-  letter-spacing: -0.5px;
+  margin: 0 0 6px 0;
+  color: #ffffff;
 }
 
-.login-catchphrase {
-  font-size: 24px;
-  font-weight: 400;
+.login-card-desc {
+  font-size: 14px;
   margin: 0;
-  color: white;
-  opacity: 0.95;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-/* 右側: 白背景 + フォーム */
-.login-right {
-  width: 50%;
-  background: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
+.login-card-body {
+  padding: 28px;
 }
 
-.login-form-wrapper {
-  width: 100%;
-  max-width: 400px;
+/* フォーム */
+.login-form-group {
+  margin-bottom: 20px;
 }
 
-.login-form {
-  width: 100%;
-}
-
-.form-group {
-  margin-bottom: 24px;
-}
-
-.form-group label {
+.login-form-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: #374151;
   font-size: 14px;
   font-weight: 500;
 }
 
-.form-group input {
+.login-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.login-label-row label {
+  margin-bottom: 0;
+}
+
+.login-forgot-link {
+  font-size: 12px;
+  color: #f97316;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.login-forgot-link:hover {
+  color: #ea580c;
+  text-decoration: underline;
+}
+
+.login-form-group input {
   width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #D1D5DB;
-  border-radius: 6px;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
-  transition: all 0.2s;
-  background: #FFFFFF;
-  color: #1F2937;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #ffffff;
+  color: #1f2937;
 }
 
-.form-group input:focus {
+.login-form-group input:focus {
   outline: none;
-  border-color: #0058a3;
-  box-shadow: 0 0 0 3px rgba(0, 88, 163, 0.1);
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
 }
 
-.form-group input::placeholder {
-  color: #9CA3AF;
+.login-form-group input::placeholder {
+  color: #9ca3af;
 }
 
-.error-message {
+/* エラーメッセージ */
+.login-error {
   margin-bottom: 20px;
-  padding: 12px 16px;
-  background: #FEE2E2;
-  color: #DC2626;
-  border-radius: 6px;
+  padding: 10px 14px;
+  background: #fef2f2;
+  color: #dc2626;
+  border-radius: 8px;
   font-size: 14px;
-  border: 1px solid #FECACA;
+  border: 1px solid #fecaca;
 }
 
+/* ログインボタン */
 .login-submit-btn {
   width: 100%;
-  padding: 14px;
-  background: #0058a3;
-  color: white;
+  height: 44px;
+  background: #f97316;
+  color: #ffffff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  margin-bottom: 16px;
-  transition: all 0.2s;
+  transition: background 0.2s;
 }
 
 .login-submit-btn:hover {
-  background: #004a8a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 88, 163, 0.3);
+  background: #ea580c;
 }
 
 .login-submit-btn:active {
-  transform: translateY(0);
+  background: #c2410c;
+}
+
+/* 切り替えリンク */
+.login-toggle-row {
+  text-align: center;
+  margin-top: 16px;
 }
 
 .login-toggle-btn {
-  width: 100%;
-  padding: 10px;
-  background: transparent;
-  color: #0058a3;
+  background: none;
   border: none;
+  color: #f97316;
   font-size: 14px;
   cursor: pointer;
   text-decoration: underline;
+  padding: 0;
   transition: color 0.2s;
 }
 
 .login-toggle-btn:hover {
-  color: #004a8a;
+  color: #ea580c;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-  .login-container {
+/* 3. サービス切り替え */
+.login-service-switch {
+  width: 100%;
+  text-align: center;
+}
+
+.service-switch-label {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0 0 10px 0;
+}
+
+.service-switch-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.service-switch-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  /* 非アクティブ（デフォルト） */
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.service-switch-btn:hover {
+  border-color: #cbd5e1;
+}
+
+.service-switch-btn.active {
+  background: #f97316;
+  color: #ffffff;
+  border-color: #f97316;
+  box-shadow: 0 1px 3px rgba(249, 115, 22, 0.25);
+  cursor: default;
+}
+
+/* 4. フッター */
+.login-footer {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* レスポンシブ */
+@media (max-width: 480px) {
+  .login-page {
+    padding: 16px 12px;
+  }
+
+  .login-content {
+    gap: 20px;
+  }
+
+  .login-card-header {
+    padding: 20px 20px;
+  }
+
+  .login-card-body {
+    padding: 20px;
+  }
+
+  .brand-logo-text {
+    font-size: 20px;
+  }
+
+  .service-switch-buttons {
     flex-direction: column;
   }
-
-  .login-left {
-    width: 100%;
-    height: 40%;
-    padding: 24px;
-  }
-
-  .login-logo {
-    font-size: 36px;
-    margin-bottom: 16px;
-  }
-
-  .login-catchphrase {
-    font-size: 18px;
-  }
-
-  .login-right {
-    width: 100%;
-    height: 60%;
-    padding: 24px;
-  }
 }
-
