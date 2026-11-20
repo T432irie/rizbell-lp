@@ -1,0 +1,17 @@
+---
+description: 作業の引き継ぎ（HANDOFF.md）の読み書きと、未 push の変更の報告
+alwaysApply: true
+---
+
+# 引き継ぎルール（HANDOFF.md）
+
+- 作業を始める前に、リポジトリ直下の `HANDOFF.md` を読み、直近の状況を把握する
+- 作業の区切りと終了時に、`HANDOFF.md` の末尾へ次の形で追記する
+
+  ```
+  ### YYYY-MM-DD HH:MM／Cursor／<ブランチ名>
+  - やったこと：
+  - 次にやること：
+  ```
+
+- 未 push の変更（未コミットの変更、または push していないコミット）があれば、終了前に T に報告する
