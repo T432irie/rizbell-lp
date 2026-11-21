@@ -9,3 +9,7 @@
 ### 2026-11-21 15:00／Claude Code／chore/cursor-handoff-rules
 - やったこと：AGENTS.md と .cursor/rules/handoff.mdc に「作業を始める前に」を追加（hostname が Mac-mini でなければ止める／git pull／~/dev/setup/HANDOFF.md の「作業中のブランチ」欄を確認）
 - 次にやること：T のマージ判断
+
+### 2026-11-21 16:05／Claude Code／docs/image-generation-rule
+- やったこと：AGENTS.md に「画像が必要なとき」（Mac mini の画像生成の仕組みを使う。Codex 優先、使えないときだけ API）を追記
+- 次にやること：T のマージ判断
