@@ -21,9 +21,9 @@
 - **使えるチェックはビルドだけ**
   - 型チェックはない（JavaScript のため）
   - テストもない
-  - lint もない。`npm run lint`（`next lint`）は Next.js 16 で廃止されていて、eslint も入っていない
-- 編集後の自動チェックは設定していない。PR の前の全チェック（`~/dev/setup/bin/pre-pr-check.sh`）は、ビルドだけを実行する
-- 編集後の自動チェック（PostToolUse フック）と PR 前の全チェック（`~/dev/setup/bin/pre-pr-check.sh`）は、`.claude/quick-check.json` の設定で動く。PR の前に Cursor のレビュー（`~/dev/setup/bin/cursor-review.sh`）も通す（pr-review-loop スキル）
+  - lint も使えない。`package.json` に `lint`（`next lint`）のスクリプトは残っているが、`next lint` は Next.js 16 で廃止されていて、eslint も入っていないので実行しない
+- `.claude/quick-check.json` には PR の前の全チェック（`full`：ビルドだけ）しか設定していない。編集後の自動チェック（`edit`）はないので、PostToolUse フックは何もしない
+- このファイルがあるので、Claude Code から `gh pr create` をするには、今のコミットで `~/dev/setup/bin/pre-pr-check.sh`（ビルド）を通し、このブランチで `~/dev/setup/bin/cursor-review.sh` を実行しておく必要がある（PreToolUse フックが確かめる。pr-review-loop スキル）
 
 ## 触ってはいけない場所・注意
 - `.env.local` は秘密情報。コミットしない・表示しない
