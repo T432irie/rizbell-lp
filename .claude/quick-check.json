@@ -1,0 +1,8 @@
+{
+  "full": [
+    {
+      "name": "ビルド",
+      "cmd": "npm run build"
+    }
+  ]
+}

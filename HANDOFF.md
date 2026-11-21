@@ -13,3 +13,7 @@
 ### 2026-11-21 16:05／Claude Code／docs/image-generation-rule
 - やったこと：AGENTS.md に「画像が必要なとき」（Mac mini の画像生成の仕組みを使う。Codex 優先、使えないときだけ API）を追記
 - 次にやること：T のマージ判断
+
+### 2026-11-21 17:40／Claude Code／chore/claude-md-checks
+- やったこと：CLAUDE.md（構成・コマンド・触ってはいけない場所・注意点・教訓の欄）と `.claude/quick-check.json`（自動チェックのコマンド）を追加
+- 次にやること：T のマージ判断
